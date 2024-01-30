@@ -76,5 +76,37 @@ ng generate component COMPONENT_NAME
 ```
 
 
+## Project Details
+
+Basic form with Create, Read, Update and Delete (CRUD) operations which is connected to Django backend to handle the API's.
 
 
+
+## Setup for this project
+
+1.  Clone the repository [](https://www.freecodecamp.org/news/node-version-manager-nvm-install-guide/)
+
+
+2.  Change the directory to the project directory 
+    ```bash
+    cd angular-form
+    ```
+
+
+3.  Use the correct version of node v16.20.2 using nvm change it if not already
+    ```bash
+    nvm use 16
+    ```
+
+
+
+
+4.  Install the dependencies using the following command
+    ```bash
+    npm install
+    ```
+
+5.  Run the project
+    ```bash
+    ng serve
+    ```
