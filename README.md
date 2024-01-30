@@ -61,12 +61,13 @@ npm i -g @angular/cli@16.2.11
 
 
 ```bash
-ng new <application_name>```
+ng new APPLICATION_NAME
+```
 
 ### Create a new component
 
 ```bash 
-ng generate component <component_name>
+ng generate component COMPONENT_NAME
 ```
 
 
