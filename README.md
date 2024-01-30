@@ -1,27 +1,69 @@
-# AngularForm
+## Dependencies Setup
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.4.
 
-## Development server
+### Install NVM (Node Version Manager)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+For Linux,
 
-## Code scaffolding
+bash ```
+sudo apt update
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+bash ```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+```
 
-## Build
+Make sure to close the terminal and reopen
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Install Node
 
-## Running unit tests
+Currently for this project we are using Node version v16.20.2
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+bash```
+nvm install 16.20.2
+```
 
-## Running end-to-end tests
+Once you install a version of Node, the corresponding version of NPM is installed for you. So you don’t need to install NPM separately.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+To check the version of Node and npm
 
-## Further help
+bash```
+node -v
+npm -v
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+We can install multiple versions of Node to use a partcular version(say 16) we use 
+
+bash```
+nvm use 16
+```
+
+
+
+### Install Angular CLI
+
+For this project we use Angular CLI version
+To install a particular version of Angular CLI we use 
+bash```
+npm i -g @angular/cli@16.2.11
+```
+
+
+
+## Project Setup
+
+
+
+### Create a new angular application
+
+
+bash```
+ng new <application_name>```
+
+### Create a new component
+
+bash```ng generate component <component_name>```
+
+
+
+
