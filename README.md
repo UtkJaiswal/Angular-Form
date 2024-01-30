@@ -114,7 +114,7 @@ Basic form with Create, Read, Update and Delete (CRUD) operations which is conne
     ng serve
     ```
 
-6.  The project is running at []
+6.  The project is running at [http://localhost:4200](http://localhost:4200)
 
 
 ### Backend setup
