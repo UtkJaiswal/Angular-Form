@@ -16,6 +16,9 @@ sudo apt update
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 ```
 
+For Windows,
+[Node Version Manager (NVM) Install Guide](https://www.freecodecamp.org/news/node-version-manager-nvm-install-guide/)
+
 
 
 Make sure to close the terminal and reopen
