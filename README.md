@@ -84,6 +84,9 @@ Basic form with Create, Read, Update and Delete (CRUD) operations which is conne
 
 ## Setup for this project
 
+
+### Frontend setup
+
 1.  Clone the repository [](https://www.freecodecamp.org/news/node-version-manager-nvm-install-guide/)
 
 
@@ -110,3 +113,47 @@ Basic form with Create, Read, Update and Delete (CRUD) operations which is conne
     ```bash
     ng serve
     ```
+
+
+### Backend setup
+
+1.  Clone the backend repository [](https://github.com/UtkJaiswal/Django-CRUD-Form)
+
+2.  Change the directory to the project directory 
+    ```bash
+    cd project
+    ```
+
+3.  Create a virtual environment
+    For Windows,
+    ```bash
+    python3 venv venv
+    ```
+
+    For Linux,
+    ```bash
+    virtualenv venv
+    ```
+
+4.  Activate the virtual enviroment
+    For Windows,
+    ```bash
+    . venv\scripts\activate
+    ```
+
+    For Linux,
+    ```bash
+    source venv/bin/activate
+    ```
+
+5. Install the dependencies
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+6.  Run the project
+    ```bash
+    python manage.py runserver
+    ```
+
+7.  The server is running at [localhost:8000]
