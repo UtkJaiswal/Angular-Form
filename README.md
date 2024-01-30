@@ -158,4 +158,4 @@ Basic form with Create, Read, Update and Delete (CRUD) operations which is conne
     python manage.py runserver
     ```
 
-7.  The server is running at [localhost:8000](localhost:8000)
+7.  The server is running at [http://localhost:8000](http://localhost:8000)
