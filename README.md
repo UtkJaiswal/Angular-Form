@@ -87,7 +87,7 @@ Basic form with Create, Read, Update and Delete (CRUD) operations which is conne
 
 ### Frontend setup
 
-1.  Clone the repository [](https://www.freecodecamp.org/news/node-version-manager-nvm-install-guide/)
+1.  Clone the repository [Angular GitHub Repository](https://github.com/UtkJaiswal/Angular-Form.git)
 
 
 2.  Change the directory to the project directory 
@@ -114,10 +114,12 @@ Basic form with Create, Read, Update and Delete (CRUD) operations which is conne
     ng serve
     ```
 
+6.  The project is running at []
+
 
 ### Backend setup
 
-1.  Clone the backend repository [](https://github.com/UtkJaiswal/Django-CRUD-Form)
+1.  Clone the backend repository [Django Github Repository](https://github.com/UtkJaiswal/Django-CRUD-Form)
 
 2.  Change the directory to the project directory 
     ```bash
@@ -156,4 +158,4 @@ Basic form with Create, Read, Update and Delete (CRUD) operations which is conne
     python manage.py runserver
     ```
 
-7.  The server is running at [](localhost:8000)
+7.  The server is running at [localhost:8000](localhost:8000)
