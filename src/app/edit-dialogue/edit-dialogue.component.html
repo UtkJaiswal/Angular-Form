@@ -1,0 +1,14 @@
+<form class="example-form" #myForm2="ngForm" (ngSubmit)="updateForm(myForm2)">
+    <mat-form-field class="example-full-width">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="" id="name" name="name" ngModel required [ngModel]="element.name">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="" id="email" name="email" ngModel required [ngModel]="element.email">
+    </mat-form-field>
+
+    <div class="example-full-width">
+      <button mat-raised-button color="primary">Update</button>
+    </div>
+</form>

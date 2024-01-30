@@ -12,5 +12,22 @@ export class UserService {
     const formData = form.value;
     return this.http.post('http://localhost:8000/submit/', formData);
   }
+
+  getForm() : Observable<any> {
+    return this.http.get('http://localhost:8000/get/')
+  }
+
+  editForm(element:any):Observable<any> {
+    return this.http.put(`http://localhost:8000/update/${element.value.id}`,element.value)
+  }
+
+  // deleteForm(element:any):Observable<any> {
+  //   return this.http.delete(`http://localhost:8000/delete`,element)
+  // }
+
+  deleteForm(id: number): Observable<any> {
+    return this.http.delete(`http://localhost:8000/delete/${id}`);
+  }
+  
   
 }

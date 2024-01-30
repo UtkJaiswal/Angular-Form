@@ -1,6 +1,8 @@
+// home.component.ts
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { UserService } from '../services/user.service';
+import { EditDialogueComponent } from '../edit-dialogue/edit-dialogue.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-home',
@@ -10,14 +12,17 @@ import { UserService } from '../services/user.service';
 export class HomeComponent implements OnInit {
   data: any[] = [];
   loading = true;
+  isEdit:boolean = false
+  editData : any
 
-  constructor(private http: HttpClient, private cdr: ChangeDetectorRef,private userService:UserService) {}
+  displayedColumns: string[] = ['name', 'email','actions'];
+
+  constructor(private userService: UserService) {}
 
   ngOnInit() {
     this.getFormData();
   }
 
-  
   submitForm(form: any) {
     if (form.valid) {
       this.userService.submitForm(form).subscribe(
@@ -35,26 +40,61 @@ export class HomeComponent implements OnInit {
       // Form is invalid, handle error or validation messages
     }
   }
-  
-  
 
   getFormData() {
-    this.http.get('http://localhost:8000/get/')
-      .subscribe(
-        (data: any) => {
-          this.data = data.result.data;
+    
+    this.userService.getForm().subscribe(
+      (response) => {
+        this.loading = false
+        this.data = response.result.data
+      }
+    )
+  }
+
+  // openEditDialog(data: any): void {
+  //   const dialogRef = this.dialog.open(EditDialogueComponent, {
+  //     width: '400px', // Adjust the width as needed
+  //     data: { ...data } // Pass the data to the dialog
+  //   });
+
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     // Handle the result after the dialog is closed (e.g., update the data)
+  //     if (result) {
+  //       // Update the data or perform other actions
+  //       console.log('Dialog result:', result);
+  //       this.getFormData(); // Refresh the data after editing
+  //     }
+  //   });
+  // }
+
+  editItem(element:any){
+    this.isEdit = true
+    this.editData = element
+    // this.userService.editForm(element).subscribe(
+    //   (response) => {
+    //     console.log("Edit form response",response
+    //     )
+
+    //   },
+    //   (error) => {
+    //     console.error("Error editing form",error)
+    //   }
+    // )
+    // console.log(element)
+  }
 
   
-          this.loading = false;
-
-          this.cdr.detectChanges();
-        },
-        (error) => {
-          console.error('Error retrieving data:', error);
-          this.loading = false;
-
-          this.cdr.detectChanges();
-        }
-      );
+  deleteItem(element:any):void{
+    this.userService.deleteForm(element.id).subscribe(
+      (response) => {
+        console.log("Delete form response",response)
+        this.getFormData()
+      },
+      (error) => {
+        console.error("Error deleting form",error)
+      }
+      
+    )
+    console.log(element)
   }
 }
