@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getFormData();
+    this.isEdit = false
   }
 
   submitForm(form: any) {
