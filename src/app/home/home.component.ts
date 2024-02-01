@@ -2,7 +2,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { EditDialogueComponent } from '../edit-dialogue/edit-dialogue.component';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +17,8 @@ export class HomeComponent implements OnInit {
 
   displayedColumns: string[] = ['name', 'email','actions'];
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService,public dialog: MatDialog,
+    public dialogRef : MatDialogRef<EditDialogueComponent>) {}
 
   ngOnInit() {
     this.getFormData();
@@ -52,21 +53,22 @@ export class HomeComponent implements OnInit {
     )
   }
 
-  // openEditDialog(data: any): void {
-  //   const dialogRef = this.dialog.open(EditDialogueComponent, {
-  //     width: '400px', // Adjust the width as needed
-  //     data: { ...data } // Pass the data to the dialog
-  //   });
+  openEditDialog(element:any): void {
+    const dialogRef = this.dialog.open(EditDialogueComponent, {
+      width: '4000px',
+      height:'500px', // Adjust the width as needed
+      data: element// Pass the data to the dialog
+    });
 
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     // Handle the result after the dialog is closed (e.g., update the data)
-  //     if (result) {
-  //       // Update the data or perform other actions
-  //       console.log('Dialog result:', result);
-  //       this.getFormData(); // Refresh the data after editing
-  //     }
-  //   });
-  // }
+    dialogRef.afterClosed().subscribe(result => {
+      this.getFormData(); // Refresh the data after editing
+      // Handle the result after the dialog is closed (e.g., update the data)
+      if (result) {
+        // Update the data or perform other actions
+        console.log('Dialog result:', result);
+      }
+    });
+  }
 
   editItem(element:any){
     this.isEdit = true
@@ -98,4 +100,6 @@ export class HomeComponent implements OnInit {
     )
     console.log(element)
   }
+
+  
 }

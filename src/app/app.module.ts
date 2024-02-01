@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';  // Import HttpClientModule
+import { HttpClientModule } from '@angular/common/http';
 
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
@@ -20,6 +20,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { EditDialogueComponent } from './edit-dialogue/edit-dialogue.component';
+import {MatDialog, MatDialogModule, MatDialogRef} from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
@@ -43,8 +45,13 @@ import { EditDialogueComponent } from './edit-dialogue/edit-dialogue.component';
     MatIconModule,
 
     AppRoutingModule,
+    MatDialogModule
+    
   ],
-  providers: [],
+  providers: [{
+    provide:MatDialogRef,
+    useValue:{}
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
