@@ -3,6 +3,7 @@ import { UserService } from '../services/user.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -17,6 +18,7 @@ export class EditDialogueComponent {
   constructor(private userService: UserService,
     public dialog: MatDialog,
     public dialogRef:MatDialogRef<EditDialogueComponent>,
+    private _snackBar:MatSnackBar,
     @Inject(MAT_DIALOG_DATA) public data: any) {}
 
   updateForm(form:any){
@@ -42,6 +44,12 @@ export class EditDialogueComponent {
 
   onNoClick() {
     this.dialogRef.close();
+  }
+
+  openSnackBar(message:string){
+
+    this._snackBar.open(message,'Close')
+    
   }
 
 }

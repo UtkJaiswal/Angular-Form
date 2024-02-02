@@ -3,6 +3,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { EditDialogueComponent } from '../edit-dialogue/edit-dialogue.component';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,8 @@ export class HomeComponent implements OnInit {
   displayedColumns: string[] = ['name', 'email','actions'];
 
   constructor(private userService: UserService,public dialog: MatDialog,
-    public dialogRef : MatDialogRef<EditDialogueComponent>) {}
+    public dialogRef : MatDialogRef<EditDialogueComponent>,
+    private _snackBar:MatSnackBar) {}
 
   ngOnInit() {
     this.getFormData();
@@ -35,11 +37,9 @@ export class HomeComponent implements OnInit {
         },
         (error) => {
           console.error('Error submitting form:', error);
-          // Handle errors appropriately
         }
       );
     } else {
-      // Form is invalid, handle error or validation messages
     }
   }
 
@@ -56,15 +56,13 @@ export class HomeComponent implements OnInit {
   openEditDialog(element:any): void {
     const dialogRef = this.dialog.open(EditDialogueComponent, {
       width: '4000px',
-      height:'500px', // Adjust the width as needed
-      data: element// Pass the data to the dialog
+      height:'500px',
+      data: element
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.getFormData(); // Refresh the data after editing
-      // Handle the result after the dialog is closed (e.g., update the data)
+      this.getFormData();
       if (result) {
-        // Update the data or perform other actions
         console.log('Dialog result:', result);
       }
     });
@@ -73,17 +71,6 @@ export class HomeComponent implements OnInit {
   editItem(element:any){
     this.isEdit = true
     this.editData = element
-    // this.userService.editForm(element).subscribe(
-    //   (response) => {
-    //     console.log("Edit form response",response
-    //     )
-
-    //   },
-    //   (error) => {
-    //     console.error("Error editing form",error)
-    //   }
-    // )
-    // console.log(element)
   }
 
   
@@ -98,8 +85,11 @@ export class HomeComponent implements OnInit {
       }
       
     )
-    console.log(element)
   }
 
+  openSnackBar(message:string){
+    this._snackBar.open(message,'Close')
+
+  }
   
 }

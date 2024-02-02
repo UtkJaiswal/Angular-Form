@@ -21,6 +21,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { EditDialogueComponent } from './edit-dialogue/edit-dialogue.component';
 import {MatDialog, MatDialogModule, MatDialogRef} from '@angular/material/dialog';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
+
 
 
 @NgModule({
@@ -45,7 +48,9 @@ import {MatDialog, MatDialogModule, MatDialogRef} from '@angular/material/dialog
     MatIconModule,
 
     AppRoutingModule,
-    MatDialogModule
+    MatDialogModule,
+
+    MatSnackBarModule
     
   ],
   providers: [{

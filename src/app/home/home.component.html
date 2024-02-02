@@ -12,14 +12,14 @@
     </mat-form-field>
 
     <div class="example-full-width">
-      <button mat-raised-button color="primary">Submit</button>
+      <button mat-raised-button color="primary" (click)="openSnackBar('Data submitted successfuly!')">Submit</button>
     </div>
   </form>
 
   <div *ngIf="loading">
-    <p>Loading...</p>
+    <mat-spinner></mat-spinner>
   </div>
-
+  
   <table mat-table [dataSource]="data" class="mat-elevation-z8" *ngIf="isEdit===false">
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Name</th>
@@ -36,7 +36,7 @@
       <td mat-cell *matCellDef="let element">
         <!-- <mat-icon class="action-icon" (click)="editItem(element)">edit</mat-icon> -->
         <mat-icon class="action-icon" (click)="openEditDialog(element)">edit</mat-icon>
-        <mat-icon class="action-icon" (click)="deleteItem(element)">delete</mat-icon>
+        <mat-icon class="action-icon" (click)="deleteItem(element)" (click)="openSnackBar('Data deleted successfully')">delete</mat-icon>
       </td>
     </ng-container>
 
