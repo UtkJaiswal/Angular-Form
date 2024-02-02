@@ -1,3 +1,8 @@
+<div mat-dialog-title class="dialog-title">
+  <button mat-icon-button aria-label="close dialog" mat-dialog-close>
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
 <form class="example-form" #myForm2="ngForm" (ngSubmit)="updateForm(myForm2)">
     <mat-form-field class="example-full-width">
       <mat-label>Name</mat-label>
@@ -12,7 +17,7 @@
       <button mat-raised-button color="primary" (click)="openSnackBar('Data updated successfully')">Update</button>
     </div>
     
-    <div class="example-full-width">
+    <!-- <div class="example-full-width">
       <button mat-raised-button color="warn" (click)="onNoClick()">Cancel</button>
-    </div>
+    </div> -->
 </form>

@@ -53,3 +53,10 @@ width: 100%;
 .mat-row:last-child {
   border-bottom: none;
 }
+
+
+.dialog-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
